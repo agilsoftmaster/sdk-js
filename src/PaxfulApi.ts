@@ -118,12 +118,12 @@ export class PaxfulApi {
      * Downloads file on behalf of currently authenticated user,
      * assumes that response will be binary file.
      *
-     * @param url - Url that should be called at api.paxful.com
+     * @param full_url - Full Url of the file to download - Starts with https://paxful.com
      * @param payload - (Optional) arguments. Passed as url params in case of GET, or as FormData in case of other methods.
      * @param method - (Optional) Method to use. Default: GET
      */
-    public download(url: string, payload: InvokeBody = {}, method="GET"): AnyPromise {
-        const requestBuilder = new RequestBuilder(`${process.env.PAXFUL_DATA_HOST}${url}`)
+    public download(full_url: string, payload: InvokeBody = {}, method="GET"): AnyPromise {
+        const requestBuilder = new RequestBuilder(full_url)
             .acceptBinary()
             .withMethod(method);
         if (method === "GET") {
