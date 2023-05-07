@@ -204,8 +204,9 @@ export class PaxfulApi {
     }
 
     private validateAndSetDefaultParameters(configuration: ApiConfiguration) {
-        const defaultOAuthHost = "https://accounts.paxful.com";
-        const defaultDataHost = "https://api.paxful.com";
+
+        const defaultOAuthHost = this.apiConfiguration.platform === "paxful" ? "https://accounts.paxful.com" : "https://auth.noones.com";
+        const defaultDataHost = this.apiConfiguration.platform === "paxful" ? "https://api.paxful.com" : "https://api.noones.com";
         if (!configuration.scope || configuration.scope.length === 0) {
             this.apiConfiguration.scope = ["profile", "email"];
         }

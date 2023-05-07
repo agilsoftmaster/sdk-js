@@ -29,4 +29,9 @@ export interface ApiConfiguration {
      * Add a proxy agent to proxy request (accepts http, https and sock proxies)
      */
     proxyAgent?: ProxyAgent;
+
+    /**
+     * Platform to connect
+     */
+    platform?: string
 }
