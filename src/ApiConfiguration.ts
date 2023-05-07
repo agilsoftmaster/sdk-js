@@ -31,7 +31,7 @@ export interface ApiConfiguration {
     proxyAgent?: ProxyAgent;
 
     /**
-     * Platform to connect
+     * Platform (noones or paxful).
      */
     platform?: string
 }
