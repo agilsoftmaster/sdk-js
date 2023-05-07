@@ -34,4 +34,14 @@ export interface ApiConfiguration {
      * Platform (noones or paxful).
      */
     platform?: string
+
+    /**
+     * Data host.
+     */
+    defaultDataHost?: string
+
+    /**
+     * oAuth host.
+     */
+    defaultOAuthHost?: string
 }

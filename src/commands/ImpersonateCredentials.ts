@@ -18,7 +18,7 @@ const createOAuthRequestTokenUrl = (config: ApiConfiguration, code?: string): Re
     form.append("client_secret", config.clientSecret);
 
     return new Request({
-        href: `${process.env.PAXFUL_OAUTH_HOST}/oauth2/token`
+        href: `${config.defaultOAuthHost}/oauth2/token`
     }, {
         method: "POST",
         headers: {

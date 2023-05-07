@@ -7,7 +7,7 @@ import { ApiConfiguration } from "../ApiConfiguration";
 
 const createRequest = (credentials: Credentials, config: ApiConfiguration): Request => {
     return new Request({
-        href: `${process.env.PAXFUL_OAUTH_HOST}/oauth2/userinfo`
+        href: `${config.defaultOAuthHost}/oauth2/userinfo`
     }, {
         method: "GET",
         headers: {

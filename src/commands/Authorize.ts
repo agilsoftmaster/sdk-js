@@ -6,10 +6,11 @@ import { ApiConfiguration } from "../ApiConfiguration";
 const createOAuthAuthorizeUrl = (
     clientId: string,
     redirectUri: string,
-    requestedScope: string[] | undefined
+    requestedScope: string[] | undefined,
+    host: string | undefined
 ): string => {
     const scope = requestedScope ? requestedScope.join(" ") : "";
-    const url = new URL(`${process.env.PAXFUL_OAUTH_HOST}/oauth2/authorize`);
+    const url = new URL(`${host}/oauth2/authorize`);
     url.searchParams.append("response_type", "code");
     url.searchParams.append("client_id", clientId);
     url.searchParams.append("redirect_uri", redirectUri);
@@ -32,7 +33,8 @@ export default function authorize(response: Http2ServerResponse, config: ApiConf
         Location: createOAuthAuthorizeUrl(
             config.clientId,
             config.redirectUri,
-            config.scope
+            config.scope,
+            config.defaultOAuthHost
         )
     });
     response.end();

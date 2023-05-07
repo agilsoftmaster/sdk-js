@@ -16,7 +16,7 @@ const refreshAccessToken = async (credentials: Credentials, config: ApiConfigura
 
     return await fetch(
         new Request({
-            href: `${process.env.PAXFUL_OAUTH_HOST}/oauth2/token`
+            href: `${config.defaultOAuthHost}/oauth2/token`
         }, {
             method: "POST",
             headers: {
